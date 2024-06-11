@@ -1,20 +1,11 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
+
+import LoginViews from "@/views/auth/login";
+import styles from "./login.module.css";
 const LoginPage = () => {
-    
-    const router = useRouter();
-    const handlerLogin = () => {
-        router.push("/product");
-    }
+  
   return (
     <>
-      <div>
-        <h1>Login Page</h1>
-        <button onClick={() => {handlerLogin()}}>Login</button>
-        <p>
-          Belum punya akun? <Link href={"/auth/register"}>Register</Link>
-        </p>
-      </div>
+      <LoginViews/>
     </>
   );
 };
