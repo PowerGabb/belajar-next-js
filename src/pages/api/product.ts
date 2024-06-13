@@ -2,14 +2,6 @@
 import { retrieveData } from "@/utils/db/service";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export type Product = {
-  id: number,
-  name: string,
-  price: number,
-  category: string,
-  image: string
-};
-
 type Data = {
     status: boolean,
     statusCode: number,

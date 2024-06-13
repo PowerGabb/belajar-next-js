@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Product } from "../api/product";
 import ProductView from "@/views/product";
 import { fetcher } from "@/utils/swr/fetcher";
 import useSWR from "swr";

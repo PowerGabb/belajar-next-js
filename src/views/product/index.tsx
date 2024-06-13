@@ -1,4 +1,12 @@
-import { Product } from "@/pages/api/product";
+
+
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  category: string;
+}
 import styles from "./product.module.scss";
 
 const ProductView = ({ product }: any) => {
