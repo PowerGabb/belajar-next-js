@@ -1,7 +1,5 @@
-import { fetcher } from "@/utils/swr/fetcher";
 import DetailProduct from "@/views/detailproduct";
 import { useRouter } from "next/router";
-import useSWR from "swr";
 
 
 type Product = {
@@ -23,7 +21,7 @@ const DetailProductPage = ({ product }: { product: Product }) => {
         <div>
             {/* Client Side */}
             {/* <DetailProduct product={isLoading ? [] : data.data}/> */}
-            {/* Server Side */}
+            {/* Server Side Dan Static side */}
             <DetailProduct product={product}/>
         </div>
     )
@@ -49,18 +47,19 @@ export async function getStaticPaths(){
 
     const paths = response.data.map((product: Product) => ({
         params: {
-            product: product.id
+            product: product.id.toString()
         }
-    }))
+    }));
 
     return {
-        pa
+        paths,
+        fallback: false
     }
 }
 
 export async function getStaticProps({params} : {params: {product: string}}){
     //Fetch Datanya
-    const res = await fetch(`http://localhost:3000/api/product/${params.product}`)
+    const res = await fetch(`http://localhost:3000/api/product/${params.product}`);
     const response = await res.json();
     return {
         props: {
