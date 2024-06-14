@@ -17,11 +17,11 @@ const ProductPage = () => {
 
   
 
-  const { data, error, isLoading } = useSWR("/api/product", fetcher);
+  const { data, error, isLoading } = useSWR("/api", fetcher);
 
   console.log(data);
-  console.log(error);
-  console.log(isLoading);
+
+  
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -35,6 +35,7 @@ const ProductPage = () => {
   //   };
   //   fetchData();
   // }, []);
+
 
 
   return (

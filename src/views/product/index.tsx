@@ -1,4 +1,6 @@
 
+import Link from "next/link";
+import styles from "./product.module.scss";
 
 type Product = {
   id: number;
@@ -7,7 +9,6 @@ type Product = {
   image: string;
   category: string;
 }
-import styles from "./product.module.scss";
 
 const ProductView = ({ product }: any) => {
   console.log(product);
@@ -18,7 +19,7 @@ const ProductView = ({ product }: any) => {
         {product && product.length > 0 ? (
           product.map((item: Product) => {
             return (
-              <div className={styles.product__content__item} key={item.id}>
+              <Link href={`product/${item.id}`} className={styles.product__content__item} key={item.id}>
                 <div className={styles.product__content__item__image}>
                   <img src={item.image} alt={item.name} />
                 </div>
@@ -32,7 +33,7 @@ const ProductView = ({ product }: any) => {
                     currency: "IDR",
                   })}
                 </p>
-              </div>
+              </Link>
             );
           })
         ) : (
